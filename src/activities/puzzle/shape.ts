@@ -1,4 +1,17 @@
-export type SceneImageId = 'bunny' | 'duck' | 'chicken' | 'apple' | 'banana' | 'milk' | 'fish' | 'leaf' | 'star'
+export type SceneImageId =
+  | 'bunny'
+  | 'duck'
+  | 'chicken'
+  | 'apple'
+  | 'banana'
+  | 'milk'
+  | 'fish'
+  | 'leaf'
+  | 'star'
+  | 'cat'
+  | 'dog'
+  | 'cow'
+  | 'frog'
 
 export const PUZZLE_IMAGE_IDS: SceneImageId[] = ['bunny', 'duck', 'chicken']
 

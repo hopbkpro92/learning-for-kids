@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { praise } from '../../audio/sfx'
 import { speak } from '../../audio/speak'
 import { addStars } from '../../state/progress'
-import ShapeSprite, { type SceneImageId } from '../../components/ShapeSprite'
+import { type SceneImageId } from '../../components/ShapeSprite'
 import { genRound, type WhoRound } from './animals'
 import './whois.css'
 
