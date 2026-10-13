@@ -12,10 +12,16 @@ import './counting.css'
 
 const ADVANCE_MS = 1500
 
-const SPRITE_NAME: Record<SceneImageId, string> = {
+const SPRITE_NAME: Partial<Record<SceneImageId, string>> = {
   bunny: 'thỏ',
   duck: 'vịt',
   chicken: 'gà',
+  apple: 'quả táo',
+  banana: 'quả chuối',
+  milk: 'sữa',
+  fish: 'con cá',
+  leaf: 'cái lá',
+  star: 'ngôi sao',
 }
 
 function spriteName(id: SceneImageId): string {

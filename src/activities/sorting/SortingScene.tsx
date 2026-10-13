@@ -3,7 +3,7 @@ import { praise } from '../../audio/sfx'
 import { speak } from '../../audio/speak'
 import { addStars } from '../../state/progress'
 import ShapeSprite, { type SceneImageId } from '../../components/ShapeSprite'
-import { genSet, type SetSpec, type SortBasket } from './gen'
+import { genSet, type SortBasket } from './gen'
 import './sorting.css'
 
 interface ItemState {
