@@ -1,5 +1,3 @@
-/// <reference types="fake-indexeddb/auto" />
-
 export interface Stroke {
   color: string
   points: { x: number; y: number }[]
