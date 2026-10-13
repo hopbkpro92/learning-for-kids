@@ -2,6 +2,7 @@ import { useRoute } from './lib/router'
 import HomeScene from './scenes/HomeScene'
 import Bunny from './components/Bunny'
 import PuzzleScene from './activities/puzzle/PuzzleScene'
+import SongsScene from './activities/songs/SongsScene'
 
 export default function App() {
   const route = useRoute()
@@ -11,6 +12,14 @@ export default function App() {
     return (
       <main id="root-viewport">
         <PuzzleScene />
+      </main>
+    )
+  }
+
+  if (door === 'songs') {
+    return (
+      <main id="root-viewport">
+        <SongsScene />
       </main>
     )
   }
