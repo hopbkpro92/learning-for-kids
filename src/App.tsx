@@ -8,6 +8,7 @@ import CountingScene from './activities/counting/CountingScene'
 import DrawingScene from './activities/drawing/DrawingScene'
 import InstrumentsScene from './scenes/InstrumentsScene'
 import SortingScene from './activities/sorting/SortingScene'
+import WhoIsScene from './activities/whois/WhoIsScene'
 import { beginRest, registerPlay, restDue, restLeft } from './state/session'
 
 export default function App() {
@@ -63,6 +64,14 @@ export default function App() {
     return (
       <main id="root-viewport">
         <SortingScene />
+      </main>
+    )
+  }
+
+  if (door === 'whois') {
+    return (
+      <main id="root-viewport">
+        <WhoIsScene />
       </main>
     )
   }
