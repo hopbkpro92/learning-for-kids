@@ -64,6 +64,10 @@ export default function HomeScene() {
         <DoorButton doorId="puzzle" label="Xếp hình" />
         <DoorButton doorId="songs" label="Ca hát" />
         <DoorButton doorId="counting" label="Đếm số" />
+        <DoorButton doorId="drawing" label="Vẽ tay" />
+        <DoorButton doorId="instruments" label="Nhạc cụ" />
+        <DoorButton doorId="sorting" label="Sắp vào giỏ" />
+        <DoorButton doorId="whois" label="Ai là ai?" />
       </nav>
       <svg className="grass" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0 12 Q12 4 25 10 T50 9 T75 11 T100 8 L100 20 L0 20 Z" fill="#A8E6A3" />

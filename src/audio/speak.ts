@@ -12,8 +12,35 @@ function getUtteranceCtor():
     | undefined
 }
 
+let cachedVoices: AnyVoice[] | null = null
+let voicesReady = false
+
+function refreshVoices(synth: SpeechSynthesis): AnyVoice[] {
+  try {
+    cachedVoices = typeof synth.getVoices === 'function' ? synth.getVoices() : []
+  } catch {
+    cachedVoices = []
+  }
+  if (cachedVoices.length) voicesReady = true
+  return cachedVoices
+}
+
+export function initSpeak(): void {
+  const synth = getSynth()
+  if (!synth) return
+  refreshVoices(synth)
+  if (!voicesReady) {
+    try {
+      synth.addEventListener('voiceschanged', () => refreshVoices(synth))
+    } catch {
+      /* trình duyệt cũ không có addEventListener */
+    }
+  }
+}
+
 function pickVoice(synth: SpeechSynthesis): AnyVoice | null {
-  const voices = typeof synth.getVoices === 'function' ? synth.getVoices() : []
+  if (!voicesReady) refreshVoices(synth)
+  const voices = cachedVoices ?? []
   return voices.find((v) => v.lang && v.lang.toLowerCase().startsWith('vi')) ?? null
 }
 

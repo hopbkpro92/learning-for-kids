@@ -22,6 +22,16 @@ it('shows three doors with Vietnamese labels', () => {
   expect(screen.getByRole('button', { name: 'Đếm số' })).toBeTruthy()
 })
 
+it('home shows all seven learning doors', () => {
+  render(<HomeScene />)
+  const doors = Array.from(document.querySelectorAll('.door-button')).map((el) =>
+    el.getAttribute('data-door'),
+  )
+  expect(doors.sort()).toEqual(
+    ['counting', 'drawing', 'instruments', 'puzzle', 'songs', 'sorting', 'whois'].sort(),
+  )
+})
+
 it('door buttons are at least 64px tall', () => {
   render(<HomeScene />)
   for (const btn of Array.from(document.querySelectorAll('.door-button')) as HTMLElement[]) {

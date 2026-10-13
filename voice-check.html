@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiểm tra giọng đọc</title>
+    <style>
+      body { font-family: system-ui, sans-serif; padding: 16px; max-width: 480px; margin: 0 auto; }
+      button { padding: 10px 16px; font-size: 1rem; margin: 8px 4px 8px 0; }
+      pre { white-space: pre-wrap; font-size: 12px; background: #f3f3f3; padding: 8px; }
+    </style>
+  </head>
+  <body>
+    <h2>Giọng đọc tiếng Việt trên máy này</h2>
+    <button onclick="load()">Xem danh sách giọng</button>
+    <button onclick="speakTest()">Đọc thử tiếng Việt</button>
+    <pre id="out">—</pre>
+    <script>
+      function show(text) {
+        document.getElementById('out').textContent = text
+      }
+      function load() {
+        const voices = speechSynthesis.getVoices()
+        if (!voices.length) {
+          show('(danh sách trống — bấm lại lần nữa, hoặc đợi 1 giây rồi bấm lại)')
+          return
+        }
+        const lines = voices.map((v) => v.name + ' | ' + v.lang)
+        const vi = voices.filter((v) => v.lang.toLowerCase().startsWith('vi'))
+        show(
+          'Tổng: ' + voices.length + ' giọng\n\n' +
+          (vi.length ? 'GIỌNG TIẾNG VIỆT:\n' + vi.map((v) => v.name + ' | ' + v.lang).join('\n') : 'KHÔNG có giọng tiếng Việt') +
+          '\n\n--- toàn bộ ---\n' + lines.join('\n')
+        )
+      }
+      function pickVi() {
+        const voices = speechSynthesis.getVoices()
+        return voices.find((v) => v.lang.toLowerCase().startsWith('vi')) || null
+      }
+      function speakTest() {
+        const u = new SpeechSynthesisUtterance('Xin chào bé. Chúng ta cùng học nhé!')
+        u.lang = 'vi-VN'
+        const v = pickVi()
+        if (v) u.voice = v
+        speechSynthesis.cancel()
+        speechSynthesis.speak(u)
+        show('Đã phát với ' + (v ? v.name + ' (' + v.lang + ')' : 'giọng mặc định — có thể phát sai tiếng'))
+      }
+      speechSynthesis.onvoiceschanged = load
+    </script>
+  </body>
+</html>
