@@ -1,5 +1,5 @@
 import { beforeEach, expect, it, vi } from 'vitest'
-import { mkCtx, stubCtx } from './test-audio-helper'
+import { stubCtx } from './test-audio-helper'
 
 beforeEach(() => {
   vi.resetModules()

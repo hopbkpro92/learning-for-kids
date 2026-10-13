@@ -24,7 +24,7 @@ it('different timbres map to different wave types', async () => {
   synth.playNote('A4', 1, 'horn')
   const ctor = vi.mocked(AudioContext)
   const ctx = ctor.mock.results[0].value
-  const types = ctx.__oscs.map((o) => (o as { type: string }).type)
+  const types = ctx.__oscs.map((o: { type: string }) => o.type)
   expect(types[0]).toBe('triangle')
   expect(types[1]).toBe('sine')
   expect(types[2]).toBe('sawtooth')

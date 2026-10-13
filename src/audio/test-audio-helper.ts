@@ -1,4 +1,4 @@
-import { beforeEach, expect, it, vi } from 'vitest'
+import { vi } from 'vitest'
 
 export function mkCtx(state: string | undefined = 'running') {
   const oscs: Record<string, unknown>[] = []
