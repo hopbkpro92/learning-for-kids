@@ -3,6 +3,7 @@ import HomeScene from './scenes/HomeScene'
 import Bunny from './components/Bunny'
 import PuzzleScene from './activities/puzzle/PuzzleScene'
 import SongsScene from './activities/songs/SongsScene'
+import CountingScene from './activities/counting/CountingScene'
 
 export default function App() {
   const route = useRoute()
@@ -20,6 +21,14 @@ export default function App() {
     return (
       <main id="root-viewport">
         <SongsScene />
+      </main>
+    )
+  }
+
+  if (door === 'counting') {
+    return (
+      <main id="root-viewport">
+        <CountingScene />
       </main>
     )
   }

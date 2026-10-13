@@ -1,0 +1,54 @@
+.counting-scene {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: linear-gradient(180deg, #8ed6ff 0%, #c9ecff 100%);
+}
+
+.counting-prompt {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2e6e8e;
+}
+
+.counting-board {
+  min-height: 220px;
+  width: min(92vw, 460px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  background: #fffaf0;
+  border: 5px solid #5b4234;
+  border-radius: 18px;
+}
+
+.counting-item {
+  width: 92px;
+  height: 92px;
+}
+
+.counting-options {
+  display: flex;
+  gap: 16px;
+}
+
+.counting-option {
+  width: 92px;
+  border: 4px solid #5b4234;
+  border-radius: 50%;
+  background: #ffd166;
+  color: #5b4234;
+  font-size: 2rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.counting-option:active {
+  transform: scale(0.94);
+}
