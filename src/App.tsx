@@ -7,6 +7,7 @@ import SongsScene from './activities/songs/SongsScene'
 import CountingScene from './activities/counting/CountingScene'
 import DrawingScene from './activities/drawing/DrawingScene'
 import InstrumentsScene from './scenes/InstrumentsScene'
+import SortingScene from './activities/sorting/SortingScene'
 import { beginRest, registerPlay, restDue, restLeft } from './state/session'
 
 export default function App() {
@@ -54,6 +55,14 @@ export default function App() {
     return (
       <main id="root-viewport">
         <InstrumentsScene />
+      </main>
+    )
+  }
+
+  if (door === 'sorting') {
+    return (
+      <main id="root-viewport">
+        <SortingScene />
       </main>
     )
   }

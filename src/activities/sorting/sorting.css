@@ -1,0 +1,73 @@
+.sorting-scene {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: linear-gradient(180deg, #8ed6ff 0%, #c9ecff 100%);
+}
+
+.sorting-board {
+  position: relative;
+  min-height: 420px;
+  width: min(94vw, 460px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: #fffaf0;
+  border: 5px solid #5b4234;
+  border-radius: 18px;
+}
+
+.sorting-setdata {
+  display: none;
+}
+
+.basket-row {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.sort-basket {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 10px;
+  border: 4px solid #5b4234;
+  border-radius: 12px;
+  min-height: 120px;
+}
+
+.basket-icon {
+  width: 40px;
+}
+
+.basket-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff6e9;
+}
+
+.sorting-item {
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  border: 4px solid #5b4234;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 4px;
+  cursor: pointer;
+  touch-action: none;
+  z-index: 2;
+}
+
+.sorting-item svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
