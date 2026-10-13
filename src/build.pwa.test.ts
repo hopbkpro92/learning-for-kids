@@ -19,4 +19,9 @@ describe('built app is PWA-ready for offline use', () => {
     expect(manifest.name).toBe('Bầu trời tí hon')
     expect(manifest.start_url).toBe('./')
   })
+
+  it('index.html loads the rounded Vietnamese font (Baloo 2)', () => {
+    const html = readFileSync(resolve(dist, 'index.html'), 'utf8')
+    expect(html).toContain('family=Baloo')
+  })
 })
