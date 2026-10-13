@@ -250,7 +250,7 @@ it('renders app shell', () => {
 
 **Interfaces:**
 - Consumes: Task 2 (`speak` + thêm `playSoundEffect(animalKey)` trong `sfx.ts` cho tiếng kêu tổng hợp), Task 4 DoorButton (`doorId='whois'`)
-- Produces: `ANIMALS: { key: string; vietnameseName: string; cryText: string; cryKind: 'meo' | 'gau' | 'uu' | 'quac' | 'trit' }[]` tối thiểu 6 con (mèo, chó, gà, vịt, bò, ếch); `genRound(): { cry: string; options: string[]; answer: string }`.
+- Produces: `ANIMALS: { key: string; vietnameseName: string; cryText: string }[]` tối thiểu 6 con — mèo «meo meo», chó «au au», gà «ó ó o», vịt «quạc quạc», bò «úm bò», ếch «ẹt ẹt»; `genRound(): { cry: string; options: string[]; answer: string }` — `cry` là chuỗi tiếng kêu, `options`/`answer` là key loài.
 
 - [ ] **Step 1: Test data** — ≥ 6 loài; key unique; cryText non-empty.
 - [ ] **Step 2: Test round/scene** — 20 lần: `options` luôn chứa `answer`, 3 items unique; tap đúng ⇒ `speak(name + ' kêu ' + cry)` + praise + sao +1, hình kế; tap sai ⇒ nhắc, không tăng sao.

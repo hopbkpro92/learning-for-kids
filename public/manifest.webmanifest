@@ -1,0 +1,19 @@
+{
+  "name": "Bầu trời tí hon",
+  "short_name": "Bầu trời tí hon",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#8ED6FF",
+  "theme_color": "#8ED6FF",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
