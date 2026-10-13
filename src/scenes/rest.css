@@ -1,0 +1,41 @@
+.rest-scene {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  background: linear-gradient(180deg, #1b2a5b 0%, #33437f 100%);
+  color: #b9c7f2;
+}
+
+.rest-moon {
+  width: 64px;
+  animation: rest-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes rest-glow {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(4px);
+  }
+}
+
+.rest-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.rest-hourglass {
+  width: 46px;
+}
+
+.rest-teaser {
+  font-size: 1.05rem;
+  color: #8ca0d9;
+  text-align: center;
+  margin: 0;
+}
