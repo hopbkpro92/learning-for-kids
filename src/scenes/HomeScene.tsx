@@ -20,12 +20,15 @@ export default function HomeScene() {
     if (greeted.current || greetedThisSession) return
     greeted.current = true
     greetedThisSession = true
-    speak('ChÃ o bÃ©, giá» thÃ´i mÃ¬nh cÃ¹ng chÆ¡i nhÃ©!')
+    speak('Chào bé, giờ thôi mình cùng chơi nhé!')
   }, [])
 
-  useEffect(() => () => {
-    if (holdTimer.current !== null) window.clearTimeout(holdTimer.current)
-  }, [])
+  useEffect(
+    () => () => {
+      if (holdTimer.current !== null) window.clearTimeout(holdTimer.current)
+    },
+    [],
+  )
 
   function gateStart() {
     if (holdTimer.current !== null) return
@@ -43,13 +46,24 @@ export default function HomeScene() {
   }
 
   return (
-    <section className="home-scene" aria-label="MÃ n nhÃ ">
-      <Cloud x={54} y={-6} delay={0} />
+    <section className="home-scene" aria-label="Màn nhà">
+      <svg
+        className="cloud"
+        style={{ left: '54%', top: '-6%', animationDelay: '0s' }}
+        viewBox="0 0 60 30"
+        aria-hidden="true"
+      >
+        <path
+          d="M12 22 Q4 22 6 16 Q2 12 10 10 Q12 4 22 7 Q28 2 34 7 Q44 4 46 11 Q56 10 54 17 Q58 22 48 22 Z"
+          fill="#FFFFFF"
+          opacity="0.92"
+        />
+      </svg>
       <Bunny mood="wave" />
       <nav className="door-list">
-        <DoorButton doorId="puzzle" label="Xáº¿p hÃ¬nh" />
-        <DoorButton doorId="songs" label="Ca hÃ¡t" />
-        <DoorButton doorId="counting" label="Äáº¿m sá»‘" />
+        <DoorButton doorId="puzzle" label="Xếp hình" />
+        <DoorButton doorId="songs" label="Ca hát" />
+        <DoorButton doorId="counting" label="Đếm số" />
       </nav>
       <svg className="grass" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0 12 Q12 4 25 10 T50 9 T75 11 T100 8 L100 20 L0 20 Z" fill="#A8E6A3" />
@@ -59,29 +73,12 @@ export default function HomeScene() {
         type="button"
         id="parent-gate"
         className="parent-gate"
-        aria-label="GÃ³c cá»§a bá»‘ máº¹"
+        aria-label="Chế độ bố mẹ"
         onPointerDown={gateStart}
         onPointerUp={gateCancel}
         onPointerCancel={gateCancel}
         onPointerLeave={gateCancel}
       />
     </section>
-  )
-}
-
-function Cloud({ x, y, delay }: { x: number; y: number; delay: number }) {
-  return (
-    <svg
-      className="cloud"
-      style={{ left: `${x}%`, top: `${y}%`, animationDelay: `${delay}s` }}
-      viewBox="0 0 60 30"
-      aria-hidden="true"
-    >
-      <path
-        d="M12 22 Q4 22 6 16 Q2 12 10 10 Q12 4 22 7 Q28 2 34 7 Q44 4 46 11 Q56 10 54 17 Q58 22 48 22 Z"
-        fill="#FFFFFF"
-        opacity="0.92"
-      />
-    </svg>
   )
 }
