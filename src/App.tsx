@@ -6,6 +6,7 @@ import PuzzleScene from './activities/puzzle/PuzzleScene'
 import SongsScene from './activities/songs/SongsScene'
 import CountingScene from './activities/counting/CountingScene'
 import DrawingScene from './activities/drawing/DrawingScene'
+import InstrumentsScene from './scenes/InstrumentsScene'
 import { beginRest, registerPlay, restDue, restLeft } from './state/session'
 
 export default function App() {
@@ -45,6 +46,14 @@ export default function App() {
     return (
       <main id="root-viewport">
         <DrawingScene />
+      </main>
+    )
+  }
+
+  if (door === 'instruments') {
+    return (
+      <main id="root-viewport">
+        <InstrumentsScene />
       </main>
     )
   }

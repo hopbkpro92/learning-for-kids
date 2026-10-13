@@ -1,0 +1,74 @@
+.instruments-scene {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+  background: linear-gradient(180deg, #8ed6ff 0%, #c9ecff 100%);
+}
+
+.pads {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 200px));
+  gap: 18px;
+}
+
+.instrument-pad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px;
+  border: 4px solid #5b4234;
+  border-radius: 20px;
+  background: #fff8f0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #5b4234;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.instrument-pad:active {
+  transform: scale(0.95);
+  background: #ffd9e4;
+}
+
+.pad-art {
+  width: 64px;
+  height: 64px;
+}
+
+.play-along-btn {
+  padding: 10px 24px;
+  border: 4px solid #5b4234;
+  border-radius: 999px;
+  background: #ffd166;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #5b4234;
+  cursor: pointer;
+}
+
+.metronome {
+  display: flex;
+  gap: 10px;
+}
+
+.beat {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #b9a68f;
+}
+
+.beat.hit {
+  background: #93d9a3;
+}
+
+.beat.on {
+  background: #ffd166;
+  border-color: #5b4234;
+}
