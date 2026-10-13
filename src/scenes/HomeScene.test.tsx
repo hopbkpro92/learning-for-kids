@@ -24,8 +24,8 @@ it('shows three doors with Vietnamese labels', () => {
 
 it('door buttons are at least 64px tall', () => {
   render(<HomeScene />)
-  for (const btn of screen.getAllByRole('button')) {
-    expect((btn as HTMLElement).style.minHeight).toBe('64px')
+  for (const btn of Array.from(document.querySelectorAll('.door-button')) as HTMLElement[]) {
+    expect(btn.style.minHeight).toBe('64px')
   }
 })
 

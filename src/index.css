@@ -120,3 +120,15 @@ body {
   place-items: center;
   background: linear-gradient(180deg, #8ed6ff 0%, #c9ecff 100%);
 }
+
+.parent-gate {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 22px;
+  height: 22px;
+  opacity: 0.35;
+  border-radius: 50%;
+  border: 2px solid #5b4234;
+  background: #fff6e9;
+}

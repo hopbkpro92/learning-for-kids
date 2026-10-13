@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Bunny from '../components/Bunny'
 import DoorButton, { ALL_DOORS, type DoorId } from '../components/DoorButton'
 import { speak } from '../audio/speak'
+import { navigate } from '../lib/router'
 
 export function suggestDoor(playedDoor: DoorId): DoorId {
   const others = ALL_DOORS.filter((d) => d !== playedDoor)
@@ -13,6 +14,7 @@ let greetedThisSession = false
 
 export default function HomeScene() {
   const greeted = useRef(false)
+  const holdTimer = useRef<number | null>(null)
 
   useEffect(() => {
     if (greeted.current || greetedThisSession) return
@@ -20,6 +22,25 @@ export default function HomeScene() {
     greetedThisSession = true
     speak('Chào bé, giờ thôi mình cùng chơi nhé!')
   }, [])
+
+  useEffect(() => () => {
+    if (holdTimer.current !== null) window.clearTimeout(holdTimer.current)
+  }, [])
+
+  function gateStart() {
+    if (holdTimer.current !== null) return
+    holdTimer.current = window.setTimeout(() => {
+      holdTimer.current = null
+      navigate('#/parents')
+    }, 3000)
+  }
+
+  function gateCancel() {
+    if (holdTimer.current !== null) {
+      window.clearTimeout(holdTimer.current)
+      holdTimer.current = null
+    }
+  }
 
   return (
     <section className="home-scene" aria-label="Màn nhà">
@@ -34,6 +55,16 @@ export default function HomeScene() {
         <path d="M0 12 Q12 4 25 10 T50 9 T75 11 T100 8 L100 20 L0 20 Z" fill="#A8E6A3" />
         <path d="M0 16 Q20 10 40 14 T100 13 L100 20 L0 20 Z" fill="#7CD36F" />
       </svg>
+      <button
+        type="button"
+        id="parent-gate"
+        className="parent-gate"
+        aria-label="Góc của bố mẹ"
+        onPointerDown={gateStart}
+        onPointerUp={gateCancel}
+        onPointerCancel={gateCancel}
+        onPointerLeave={gateCancel}
+      />
     </section>
   )
 }
